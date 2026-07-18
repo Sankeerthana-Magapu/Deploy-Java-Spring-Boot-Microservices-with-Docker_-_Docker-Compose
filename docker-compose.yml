@@ -1,0 +1,12 @@
+services:
+  ledger-service:
+    build: ./ledger-service-main/ledger-service-main
+    ports:
+      - "8081:8081"
+
+  transfer-service:
+    build: ./transfer-service-main/transfer-service-main
+    ports:
+      - "8088:8080"
+    environment:
+      - LEDGER_SERVICE_URL=http://ledger-service:8081
